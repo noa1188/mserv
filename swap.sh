@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# 2026.3.21：Claude Sonnet 4.6 修改
+# Claude Sonnet 4.6
+# 脚本名称: swap.sh
+# 功能描述: Linux VPS 一键添加/删除 swap，针对 1c1g 优化
+# 作者: noa1188
+# 更新日期: 2026-03-21
+# 使用方法: bash swap.sh
 
 Green="\033[32m"
 Font="\033[0m"
