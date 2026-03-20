@@ -1,5 +1,5 @@
-# Claude Sonnet 4.6 修改
 #!/usr/bin/env bash
+# 2026.3.21：Claude Sonnet 4.6 修改
 
 Green="\033[32m"
 Font="\033[0m"
