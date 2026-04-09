@@ -18,6 +18,10 @@ done
 read -p "请输入重装后的 root 密码 (直接回车默认设置为: MySecurePass2026!): " CUSTOM_PWD
 CUSTOM_PWD=${CUSTOM_PWD:-MySecurePass2026!}
 
+# 动态配置 SSH 端口
+read -p "请输入自定义 SSH 端口 (直接回车默认保留为: 22): " CUSTOM_PORT
+CUSTOM_PORT=${CUSTOM_PORT:-22}
+
 # 4. 下载核心执行脚本 (修复了真实的底层脚本直连地址)
 CORE_SCRIPT="InstallNET.sh"
 wget --no-check-certificate -qO $CORE_SCRIPT "https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh"
@@ -52,11 +56,11 @@ read -p "请输入编号: " N
 
 # 适配了新底层脚本的参数格式 (-debian 12 -pwd 密码)
 case $N in
-    1) bash $CORE_SCRIPT -debian 12 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
-    2) bash $CORE_SCRIPT -debian 13 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
-    3) bash $CORE_SCRIPT -ubuntu 20.04 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
-    4) bash $CORE_SCRIPT -ubuntu 22.04 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
-    5) bash $CORE_SCRIPT -ubuntu 24.04 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
+    1) bash $CORE_SCRIPT -debian 12 -pwd "$CUSTOM_PWD" -port "$CUSTOM_PORT" -firmware --nomemcheck ;;
+    2) bash $CORE_SCRIPT -debian 13 -pwd "$CUSTOM_PWD" -port "$CUSTOM_PORT" -firmware --nomemcheck ;;
+    3) bash $CORE_SCRIPT -ubuntu 20.04 -pwd "$CUSTOM_PWD" -port "$CUSTOM_PORT" -firmware --nomemcheck ;;
+    4) bash $CORE_SCRIPT -ubuntu 22.04 -pwd "$CUSTOM_PWD" -port "$CUSTOM_PORT" -firmware --nomemcheck ;;
+    5) bash $CORE_SCRIPT -ubuntu 24.04 -pwd "$CUSTOM_PWD" -port "$CUSTOM_PORT" -firmware --nomemcheck ;;
     0) exit 0 ;;
     *) echo "输入错误" ;;
 esac
