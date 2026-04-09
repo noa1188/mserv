@@ -18,13 +18,11 @@ done
 read -p "请输入重装后的 root 密码 (直接回车默认设置为: MySecurePass2026!): " CUSTOM_PWD
 CUSTOM_PWD=${CUSTOM_PWD:-MySecurePass2026!}
 
-# 4. 下载核心执行脚本
-# 使用 leitbogioro 的原版脚本，完美适配甲骨文(支持ARM/AMD)和CloudCone，且自动处理 IPv4/IPv6 双栈网络
-CORE_SCRIPT="network-reinstall.sh"
-wget -qO $CORE_SCRIPT "https://raw.githubusercontent.com/leitbogioro/Tools/master/network-reinstall.sh"
+# 4. 下载核心执行脚本 (修复了真实的底层脚本直连地址)
+CORE_SCRIPT="InstallNET.sh"
+wget --no-check-certificate -qO $CORE_SCRIPT "https://raw.githubusercontent.com/leitbogioro/Tools/master/Linux_reinstall/InstallNET.sh"
 
-# 修复了原代码中下载名称和检查名称不一致的致命错误
-if [ ! -f "$CORE_SCRIPT" ]; then
+if [ ! -s "$CORE_SCRIPT" ]; then
     echo "核心脚本下载失败，请检查网络。"
     exit 1
 fi
