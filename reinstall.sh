@@ -52,11 +52,11 @@ read -p "请输入编号: " N
 
 # 适配了新底层脚本的参数格式 (-debian 12 -pwd 密码)
 case $N in
-    1) bash $CORE_SCRIPT -debian 12 -pwd "$CUSTOM_PWD" ;;
-    2) bash $CORE_SCRIPT -debian 13 -pwd "$CUSTOM_PWD" ;;
-    3) bash $CORE_SCRIPT -ubuntu 20.04 -pwd "$CUSTOM_PWD" ;;
-    4) bash $CORE_SCRIPT -ubuntu 22.04 -pwd "$CUSTOM_PWD" ;;
-    5) bash $CORE_SCRIPT -ubuntu 24.04 -pwd "$CUSTOM_PWD" ;;
+    1) bash $CORE_SCRIPT -debian 12 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
+    2) bash $CORE_SCRIPT -debian 13 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
+    3) bash $CORE_SCRIPT -ubuntu 20.04 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
+    4) bash $CORE_SCRIPT -ubuntu 22.04 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
+    5) bash $CORE_SCRIPT -ubuntu 24.04 -pwd "$CUSTOM_PWD" -firmware --nomemcheck ;;
     0) exit 0 ;;
     *) echo "输入错误" ;;
 esac
