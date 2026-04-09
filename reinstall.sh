@@ -22,12 +22,12 @@ CUSTOM_PWD=${CUSTOM_PWD:-MySecurePass2026!}
 GITHUB_RAW_URL="https://raw.githubusercontent.com/noa1188/reinstall/refs/heads/main"
 
 # 安全下载核心执行脚本 (去掉 --no-check-certificate 优先走正常 HTTPS)
-wget -qO network-reinstall.sh "$GITHUB_RAW_URL/network-reinstall.sh"
-if [ ! -f "network-reinstall.sh" ]; then
+wget -qO network-reinstall.sh "$GITHUB_RAW_URL/reinstall.sh"
+if [ ! -f "reinstall.sh" ]; then
     echo "核心脚本下载失败，请检查网络或 GITHUB_RAW_URL 是否正确。"
     exit 1
 fi
-chmod a+x network-reinstall.sh
+chmod a+x reinstall.sh
 
 # 5. 获取网络信息
 MAINIP=$(ip route get 1 | awk '{print $7;exit}')
