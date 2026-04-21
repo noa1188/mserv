@@ -75,7 +75,7 @@ SHORT_ID=$(openssl rand -hex 8)
 KEYPAIR=$(/usr/local/bin/sing-box generate reality-keypair)
 PRIVATE_KEY=$(echo "$KEYPAIR" | grep PrivateKey | awk '{print $2}')
 PUBLIC_KEY=$(echo "$KEYPAIR" | grep PublicKey | awk '{print $2}')
-SNI="itunes.apple.com"
+SNI="www.python.org"
 REALITY_PORT=443
 
 # Hysteria2 参数生成
